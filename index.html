@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Password Generator</title>
+    <meta name="description" content="Password hash generator" />
+    <meta name="author" content="phaze-phusion" />
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" />
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cyborg/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" /> -->
+    <!-- Styles for offline testing -->
+    <link rel="stylesheet" type="text/css" href="assets/libs/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/generator.css" />
+</head>
+<body role="document">
+<div id="page-header">
+    <div class="container">
+        <h1 id="brand-title">Password Generator</h1>
+    </div>
+    <div class="text-center">
+        <strong class="hidden-sm-up text-danger">XS</strong>
+        <strong class="hidden-md-up hidden-xs-down text-warning">SM</strong>
+        <strong class="hidden-lg-up hidden-sm-down text-success">MD</strong>
+        <strong class="hidden-xl-up hidden-md-down text-primary">LG</strong>
+        <strong class="hidden-lg-down text-info">XL</strong>
+    </div>
+</div>
+<div class="container" role="main">
+    <form id="genform">
+
+        <div id="form-headers" class="row hidden-sm-down">
+            <div class="col-md-2 col-lg-2">&nbsp;</div>
+            <div class="col-md-1 text-center pl-md-0"><b>Incl.</b></div>
+            <div class="col-md-2 pl-md-0 col-lg-1 pr-xl-3"><b>Count</b></div>
+            <div class="col-md-2 pl-md-0 col-lg-1 pr-xl-3"><b>Duplicates</b></div>
+            <div class="col-md-5 pl-md-0 px-lg-3"><b>Characters</b></div>
+        </div>
+
+        <hr class="row">
+
+        <fieldset id="secondary" class="form-group row hidden-sm-up">
+            <label for="secondary-output" class="col-sm-2 col-form-label-md">Hash output</label>
+            <div class="col-sm-10">
+                <textarea id="secondary-output" class="form-control form-control-sm" readonly tabindex="-1"></textarea>
+            </div>
+        </fieldset>
+
+        <hr class="row hidden-sm-up">
+
+        <fieldset id="lowercase" class="form-group row fieldset-odd">
+            <legend class="sr-only">Lowercase Section</legend>
+
+            <label for="lowercase-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Lowercase</label>
+            <div class="col-4 col-sm-1 pl-md-0">
+                <div class="form-check text-md-center">
+                    <label for="lowercase-cb" class="form-check-label">
+                        <input id="lowercase-cb" type="checkbox" class="form-check-input" checked tabindex="2">
+                    </label>
+                </div>
+            </div>
+
+            <label for="lowercase-count" class="col-form-label-md hidden-md-up col-4 col-sm-2">Count</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="lowercase-count" class="form-control form-control-sm" value="8" tabindex="3">
+            </div>
+
+            <label for="lowercase-duplicate" class="col-form-label-md hidden-md-up col-4 col-sm-2">Duplicates</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="lowercase-duplicate" class="form-control form-control-sm" value="0" tabindex="4">
+            </div>
+
+            <label for="lowercase-output" class="col-form-label-md hidden-md-up col-4 col-sm-3">Characters</label>
+            <div class="col-8 col-sm-9 col-md-3 px-md-0 px-lg-3 col-lg-6">
+                <input type="text" id="lowercase-output" class="form-control form-control-sm" value="" readonly>
+            </div>
+
+            <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
+                <button type="button" id="lowercase-button" class="btn btn-sm btn-block btn-primary" tabindex="15">shuffle<span class="hidden-md-up"> lowercase</span></button>
+            </div>
+        </fieldset>
+
+        <fieldset id="uppercase" class="form-group row fieldset-even">
+            <legend class="sr-only">Uppercase Section</legend>
+
+            <label for="uppercase-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Uppercase</label>
+            <div class="col-4 col-sm-1 pl-md-0">
+                <div class="form-check text-md-center">
+                    <label for="uppercase-cb" class="form-check-label">
+                        <input id="uppercase-cb" type="checkbox" class="form-check-input" checked tabindex="5">
+                    </label>
+                </div>
+            </div>
+
+            <label for="uppercase-count" class="col-form-label-md hidden-md-up col-4 col-sm-2">Count</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="uppercase-count" class="form-control form-control-sm" value="8" tabindex="6">
+            </div>
+
+            <label for="uppercase-duplicate" class="col-form-label-md hidden-md-up col-4 col-sm-2">Duplicates</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="uppercase-duplicate" class="form-control form-control-sm" value="0" tabindex="7">
+            </div>
+
+            <label for="uppercase-output" class="col-form-label-md hidden-md-up col-4 col-sm-3">Characters</label>
+            <div class="col-8 col-sm-9 col-md-3 px-md-0 px-lg-3 col-lg-6">
+                <input type="text" id="uppercase-output" class="form-control form-control-sm" value="" readonly>
+            </div>
+
+            <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
+                <button type="button" id="uppercase-button" class="btn btn-sm btn-block btn-primary" tabindex="16">shuffle<span class="hidden-md-up"> uppercase</span></button>
+            </div>
+        </fieldset>
+
+        <fieldset id="numeric" class="form-group row fieldset-odd">
+            <legend class="sr-only">Numerics</legend>
+
+            <label for="numeric-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Numerics</label>
+            <div class="col-4 col-sm-1 pl-md-0">
+                <div class="form-check text-md-center">
+                    <label for="numeric-cb" class="form-check-label">
+                        <input id="numeric-cb" type="checkbox" class="form-check-input" checked tabindex="8">
+                    </label>
+                </div>
+            </div>
+
+            <label for="numeric-count" class="col-form-label-md hidden-md-up col-4 col-sm-2">Count</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="numeric-count" class="form-control form-control-sm" value="4" tabindex="9">
+            </div>
+
+            <label for="numeric-duplicate" class="col-form-label-md hidden-md-up col-4 col-sm-2">Duplicates</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="numeric-duplicate" class="form-control form-control-sm" value="0" tabindex="10">
+            </div>
+
+            <label for="numeric-output" class="col-form-label-md hidden-md-up col-4 col-sm-3">Characters</label>
+            <div class="col-8 col-sm-9 col-md-3 px-md-0 px-lg-3 col-lg-6">
+                <input type="text" id="numeric-output" class="form-control form-control-sm" value="" readonly>
+            </div>
+
+            <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
+                <button type="button" id="numeric-button" class="btn btn-sm btn-block btn-primary" tabindex="17">shuffle<span class="hidden-md-up"> numerics</span></button>
+            </div>
+        </fieldset>
+
+        <fieldset id="symbol" class="form-group row fieldset-even">
+            <legend class="sr-only">Symbols</legend>
+
+            <label for="symbol-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Symbols</label>
+            <div class="col-4 col-sm-1 pl-md-0">
+                <div class="form-check text-md-center">
+                    <label for="symbol-cb" class="form-check-label">
+                        <input id="symbol-cb" type="checkbox" class="form-check-input" checked tabindex="11">
+                    </label>
+                </div>
+            </div>
+
+
+            <label for="symbol-count" class="col-form-label-md hidden-md-up col-4 col-sm-2">Count</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="symbol-count" class="form-control form-control-sm" value="4" tabindex="12">
+            </div>
+
+            <label for="symbol-duplicate" class="col-form-label-md hidden-md-up col-4 col-sm-2">Duplicates</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="symbol-duplicate" class="form-control form-control-sm" value="0" tabindex="13">
+            </div>
+
+            <label for="symbol-output" class="col-form-label-md hidden-md-up col-4 col-sm-3">Characters</label>
+            <div class="col-8 col-sm-9 col-md-3 px-md-0 px-lg-3 col-lg-6">
+                <input type="text" id="symbol-output" class="form-control form-control-sm" value="" readonly>
+            </div>
+
+            <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
+                <button type="button" id="symbol-button" class="btn btn-sm btn-block btn-primary" tabindex="18">shuffle<span class="hidden-md-up"> symbols</span></button>
+            </div>
+        </fieldset>
+
+        <fieldset id="mobiunicode" class="form-group row fieldset-even">
+            <legend class="sr-only">Mobi-Unicode</legend>
+
+            <label for="mobiunicode-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Mobi-Unicode</label>
+            <div class="col-4 col-sm-1 pl-md-0">
+                <div class="form-check text-md-center">
+                    <label for="mobiunicode-cb" class="form-check-label">
+                        <input id="mobiunicode-cb" type="checkbox" class="form-check-input" tabindex="-1">
+                    </label>
+                </div>
+            </div>
+
+
+            <label for="mobiunicode-count" class="col-form-label-md hidden-md-up col-4 col-sm-2">Count</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="mobiunicode-count" class="form-control form-control-sm" value="1" tabindex="-1">
+            </div>
+
+            <label for="mobiunicode-duplicate" class="col-form-label-md hidden-md-up col-4 col-sm-2">Duplicates</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="mobiunicode-duplicate" class="form-control form-control-sm" value="0" tabindex="-1">
+            </div>
+
+            <label for="mobiunicode-output" class="col-form-label-md hidden-md-up col-4 col-sm-3">Characters</label>
+            <div class="col-8 col-sm-9 col-md-3 px-md-0 px-lg-3 col-lg-6">
+                <input type="text" id="mobiunicode-output" class="form-control form-control-sm" value="" readonly>
+            </div>
+
+            <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
+                <button type="button" id="mobiunicode-button" class="btn btn-sm btn-block btn-primary" tabindex="-1">shuffle<span class="hidden-md-up"> Mobi-Unicode</span></button>
+            </div>
+        </fieldset>
+
+        <fieldset id="latinextended" class="form-group row fieldset-even">
+            <legend class="sr-only">Latin Extended</legend>
+
+            <label for="latinextended-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Latin Extended</label>
+            <div class="col-4 col-sm-1 pl-md-0">
+                <div class="form-check text-md-center">
+                    <label for="latinextended-cb" class="form-check-label">
+                        <input id="latinextended-cb" type="checkbox" class="form-check-input" tabindex="-1">
+                    </label>
+                </div>
+            </div>
+
+
+            <label for="latinextended-count" class="col-form-label-md hidden-md-up col-4 col-sm-2">Count</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="latinextended-count" class="form-control form-control-sm" value="1" tabindex="-1">
+            </div>
+
+            <label for="latinextended-duplicate" class="col-form-label-md hidden-md-up col-4 col-sm-2">Duplicates</label>
+            <div class="col-5 col-sm-2 col-md-2 pl-md-0 pr-lg-3 col-lg-1">
+                <input type="number" id="latinextended-duplicate" class="form-control form-control-sm" value="0" tabindex="-1">
+            </div>
+
+            <label for="latinextended-output" class="col-form-label-md hidden-md-up col-4 col-sm-3">Characters</label>
+            <div class="col-8 col-sm-9 col-md-3 px-md-0 px-lg-3 col-lg-6">
+                <input type="text" id="latinextended-output" class="form-control form-control-sm" value="" readonly>
+            </div>
+
+            <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
+                <button type="button" id="latinextended-button" class="btn btn-sm btn-block btn-primary" tabindex="-1">shuffle<span class="hidden-md-up"> Latin Extended</span></button>
+            </div>
+        </fieldset>
+
+        <hr class="row">
+
+        <fieldset id="length" class="form-group row">
+            <label for="total-length" class="col-form-label-md col-6 col-sm-3 col-md-2">Total Length</label>
+            <div class="col-6 col-sm-2 col-xl-1">
+                <input type="text" id="total-length" class="form-control form-control-sm" value="24" readonly>
+            </div>
+        </fieldset>
+
+        <fieldset id="permutations" class="form-group row">
+            <label for="total-permutations" class="col-form-label-md col-6 col-sm-3 col-md-2">Permutations</label>
+            <div class="col-6 col-sm-9 col-md-5 col-lg-4 col-xl-3">
+                <input type="text" id="total-permutations" class="form-control form-control-sm" value="" readonly>
+            </div>
+        </fieldset>
+
+        <hr class="row">
+
+        <fieldset id="primary" class="form-group row">
+            <label for="primary-output" class="col-form-label-md col-sm-3 col-md-2">Hash<span class="hidden-md-up"> output</span></label>
+            <div class="col-sm-9 col-md-10">
+                <textarea id="primary-output" class="form-control form-control-sm" readonly tabindex="14"></textarea>
+            </div>
+        </fieldset>
+
+    </form>
+</div><!-- /container -->
+<div id="page-footer">
+    <div class="container">
+        <div id="footer-copyright">
+        Copyright 2017 &copy; <a href="http://phaze-phusion.co.za" target="_blank">phaze-phusion</a>.<br class="visible-xs" />
+        Published under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank" title="GNU GPL v3">GNU General Public License v2</a>.
+        </div>
+    </div>
+</div>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+<!-- Scripts for offline testing -->
+<script src="assets/libs/jquery/jquery-2.2.4.min.js"></script>
+<script src="assets/libs/tether/js/tether.min.js"></script>
+<script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/generator.js"></script>
+</body>
+</html>
