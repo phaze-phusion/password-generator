@@ -12,7 +12,7 @@ The front-end is built with Bootstrap 4 Alpha. The generator is built using ES20
 See it in action http://phaze-phusion.co.za/password-generator/
 
 ### License
-Password Strength Checker is published under the terms of the [GNU General Public License v2](LICENSE).
+Password Generator is published under the terms of the [GNU General Public License v2](LICENSE).
 
 ### Libraries Used
 
