@@ -7,8 +7,10 @@ I created this application for 3 reasons:
 2. I wanted to see what the new Bootstrap v4 is like (btw It rocks!)
 3. I wanted to to use ES2015 in a real project.
 
-The front-end is built with Bootstrap 4 Alpha. The generator is built using ES2015 (aka ES6). For best results use Firefox to test the generator.
+The front-end is built with Bootstrap 4 Alpha. The generator is built using ES2015 (aka ES6).
 
+## This demo requires Firefox 50+
+Since Mozilla is ahead of the pack regarding latest technologies, it will only work in Firefox. **It won't work in Chrome.**
 See it in action http://phaze-phusion.co.za/password-generator/
 
 ### License
