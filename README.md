@@ -9,8 +9,7 @@ I created this application for 3 reasons:
 
 The front-end is built with Bootstrap 4 Alpha. The generator is built using ES2015 (aka ES6).
 
-## This demo requires Firefox 50+
-Since Mozilla is ahead of the pack regarding latest technologies, it will only work in Firefox. **It won't work in Chrome.**
+## The demo requires Firefox or Chrome
 See it in action http://phaze-phusion.co.za/password-generator/
 
 ### License
