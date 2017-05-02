@@ -8,29 +8,25 @@
     <meta name="description" content="Password hash generator" />
     <meta name="author" content="phaze-phusion" />
     <link rel="shortcut icon" href="favicon.ico"/>
-    <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" />
-    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cyborg/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <!-- Styles for offline testing -->
-    <link rel="stylesheet" type="text/css" href="assets/libs/bootstrap/css/bootstrap.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="assets/libs/bootstrap.min.css" /> -->
     <link rel="stylesheet" type="text/css" href="assets/css/generator.css" />
 </head>
 <body role="document">
-<div id="page-header">
-    <div class="container">
-        <h1 id="brand-title">Password Generator</h1>
-    </div>
-    <div class="text-center">
-        <strong class="hidden-sm-up text-danger">XS</strong>
-        <strong class="hidden-md-up hidden-xs-down text-warning">SM</strong>
-        <strong class="hidden-lg-up hidden-sm-down text-success">MD</strong>
-        <strong class="hidden-xl-up hidden-md-down text-primary">LG</strong>
-        <strong class="hidden-lg-down text-info">XL</strong>
-    </div>
-</div>
 <div class="container" role="main">
-    <form id="genform">
+    <header id="page-header">
+        <h1 id="brand-title">Password Generator</h1>
+        <!-- <div class="text-center">
+            <strong class="hidden-sm-up text-danger">XS</strong>
+            <strong class="hidden-md-up hidden-xs-down text-warning">SM</strong>
+            <strong class="hidden-lg-up hidden-sm-down text-success">MD</strong>
+            <strong class="hidden-xl-up hidden-md-down text-primary">LG</strong>
+            <strong class="hidden-lg-down text-info">XL</strong>
+        </div> -->
+    </header>
 
+    <form id="genform">
         <div id="form-headers" class="row hidden-sm-down">
             <div class="col-md-2 col-lg-2">&nbsp;</div>
             <div class="col-md-1 text-center pl-md-0"><b>Incl.</b></div>
@@ -41,16 +37,16 @@
 
         <hr class="row">
 
-        <fieldset id="secondary" class="form-group row hidden-sm-up">
+        <div id="secondary" class="form-group row hidden-sm-up">
             <label for="secondary-output" class="col-sm-2 col-form-label-md">Hash output</label>
             <div class="col-sm-10">
                 <textarea id="secondary-output" class="form-control form-control-sm" readonly tabindex="-1"></textarea>
             </div>
-        </fieldset>
+        </div>
 
         <hr class="row hidden-sm-up">
 
-        <fieldset id="lowercase" class="form-group row fieldset-odd">
+        <div id="lowercase" class="form-group row fieldset-odd">
             <legend class="sr-only">Lowercase Section</legend>
 
             <label for="lowercase-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Lowercase</label>
@@ -80,9 +76,9 @@
             <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
                 <button type="button" id="lowercase-button" class="btn btn-sm btn-block btn-primary" tabindex="15">shuffle<span class="hidden-md-up"> lowercase</span></button>
             </div>
-        </fieldset>
+        </div>
 
-        <fieldset id="uppercase" class="form-group row fieldset-even">
+        <div id="uppercase" class="form-group row fieldset-even">
             <legend class="sr-only">Uppercase Section</legend>
 
             <label for="uppercase-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Uppercase</label>
@@ -112,9 +108,9 @@
             <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
                 <button type="button" id="uppercase-button" class="btn btn-sm btn-block btn-primary" tabindex="16">shuffle<span class="hidden-md-up"> uppercase</span></button>
             </div>
-        </fieldset>
+        </div>
 
-        <fieldset id="numeric" class="form-group row fieldset-odd">
+        <div id="numeric" class="form-group row fieldset-odd">
             <legend class="sr-only">Numerics</legend>
 
             <label for="numeric-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Numerics</label>
@@ -144,9 +140,9 @@
             <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
                 <button type="button" id="numeric-button" class="btn btn-sm btn-block btn-primary" tabindex="17">shuffle<span class="hidden-md-up"> numerics</span></button>
             </div>
-        </fieldset>
+        </div>
 
-        <fieldset id="symbol" class="form-group row fieldset-even">
+        <div id="symbol" class="form-group row fieldset-even">
             <legend class="sr-only">Symbols</legend>
 
             <label for="symbol-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Symbols</label>
@@ -177,9 +173,9 @@
             <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
                 <button type="button" id="symbol-button" class="btn btn-sm btn-block btn-primary" tabindex="18">shuffle<span class="hidden-md-up"> symbols</span></button>
             </div>
-        </fieldset>
+        </div>
 
-        <fieldset id="mobiunicode" class="form-group row fieldset-even">
+        <div id="mobiunicode" class="form-group row fieldset-even">
             <legend class="sr-only">Mobi-Unicode</legend>
 
             <label for="mobiunicode-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Mobi-Unicode</label>
@@ -210,9 +206,9 @@
             <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
                 <button type="button" id="mobiunicode-button" class="btn btn-sm btn-block btn-primary" tabindex="-1">shuffle<span class="hidden-md-up"> Mobi-Unicode</span></button>
             </div>
-        </fieldset>
+        </div>
 
-        <fieldset id="latinextended" class="form-group row fieldset-even">
+        <div id="latinextended" class="form-group row fieldset-even">
             <legend class="sr-only">Latin Extended</legend>
 
             <label for="latinextended-cb" class="col-form-label-md col-6 col-sm-3 col-md-2 pr-md-0"><span class="hidden-md-up">Use </span>Latin Extended</label>
@@ -243,32 +239,32 @@
             <div class="push-4 col-8 push-sm-3 col-sm-4 push-md-0 col-md-2 text-md-center col-lg-1 pl-lg-0">
                 <button type="button" id="latinextended-button" class="btn btn-sm btn-block btn-primary" tabindex="-1">shuffle<span class="hidden-md-up"> Latin Extended</span></button>
             </div>
-        </fieldset>
+        </div>
 
         <hr class="row">
 
-        <fieldset id="length" class="form-group row">
+        <div id="length" class="form-group row">
             <label for="total-length" class="col-form-label-md col-6 col-sm-3 col-md-2">Total Length</label>
             <div class="col-6 col-sm-2 col-xl-1">
                 <input type="text" id="total-length" class="form-control form-control-sm" value="24" readonly>
             </div>
-        </fieldset>
+        </div>
 
-        <fieldset id="permutations" class="form-group row">
+        <div id="permutations" class="form-group row">
             <label for="total-permutations" class="col-form-label-md col-6 col-sm-3 col-md-2">Permutations</label>
             <div class="col-6 col-sm-9 col-md-5 col-lg-4 col-xl-3">
                 <input type="text" id="total-permutations" class="form-control form-control-sm" value="" readonly>
             </div>
-        </fieldset>
+        </div>
 
         <hr class="row">
 
-        <fieldset id="primary" class="form-group row">
+        <div id="primary" class="form-group row">
             <label for="primary-output" class="col-form-label-md col-sm-3 col-md-2">Hash<span class="hidden-md-up"> output</span></label>
             <div class="col-sm-9 col-md-10">
                 <textarea id="primary-output" class="form-control form-control-sm" readonly tabindex="14"></textarea>
             </div>
-        </fieldset>
+        </div>
 
     </form>
 </div><!-- /container -->
@@ -280,12 +276,13 @@
         </div>
     </div>
 </div>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <!-- Scripts for offline testing -->
-<script src="assets/libs/jquery/jquery-2.2.4.min.js"></script>
-<script src="assets/libs/tether/js/tether.min.js"></script>
-<script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+<!-- <script src="assets/libs/jquery-3.1.1.slim.min.js"></script>
+<script src="assets/libs/tether-1.4.0.min.js"></script>
+<script src="assets/libs/bootstrap.min.js"></script> -->
 <script src="assets/js/generator.js"></script>
 </body>
 </html>
